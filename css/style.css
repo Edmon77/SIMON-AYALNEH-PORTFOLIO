@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Inter:wght@300;400;500;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fcfcfc; /* Very light, off-white background */
+    color: #333;
+}
+
+@font-face {
+    font-family: 'Kosfia';
+    src: url('../fonts/KOSFIA-BF66f1bfec408e5.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.kosfia-title {
+    font-family: 'Kosfia', serif;
+}
+
+#contemporary-canvas h2 {
+    font-family: 'Kosfia', serif;
+}
+
+#about {
+    margin-top: -80px; /* adjust based on actual header height */
+}
+
+.header-title {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Custom utility classes for the specific text colors in the samples */
+.text-accent-blue { color: #5c8d9e; }
+.text-accent-orange { color: #e88d6c; }
+
+/* Ensures smooth scrolling to sections */
+html { scroll-behavior: smooth; }
+
+/* Custom image container for consistent aspect ratio handling */
+.img-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+.img-container:hover img {
+    transform: scale(1.03);
+}
+
+/* Responsive grid adjustments for mobile */
+@media (max-width: 768px) {
+    .mobile-stack > div {
+        margin-bottom: 1rem;
+    }
+    .grid-1x1-2x2 {
+        grid-template-columns: 1fr;
+    }
+    .grid-1x1-2x2 > :first-child {
+        grid-column: span 1;
+    }
+}
+
+/* frosted header + solid-on-scroll behavior */
+.frosted-header.solid {
+    background-color: rgba(255,255,255,0.1); /* keep it transparent */
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom-color: rgba(255,255,255,0.2);
+    box-shadow: 0 6px 18px rgba(16,24,40,0.06); /* optional shadow */
+}
+
+
+/* Default text when header sits over dark images (high contrast) */
+.frosted-header .header-title,
+.frosted-header nav a,
+.frosted-header .mobile-menu-icon {
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.45);
+    transition: color 0.3s ease;
+}
+
+/* link hover */
+.frosted-header nav a:hover { color: #e88d6c !important; }
+
+/* When scrolled past hero (or over light backgrounds) — make header more solid + dark text */
+.frosted-header.solid {
+    background-color: rgba(255,255,255,0.46);
+    border-bottom-color: rgba(0,0,0,0.06);
+    box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+}
+.frosted-header.solid .header-title,
+.frosted-header.solid nav a,
+.frosted-header.solid .mobile-menu-icon {
+    color: #111827 !important; /* dark gray */
+    text-shadow: none;
+}
+/* small helper to keep mobile icon aligned if needed */
+.frosted-header .mobile-menu-icon { line-height: 1; }
+
+/* Diagonal small images hover */
+.small-diagonal img:hover {
+    transform: scale(1.2); /* Zoom to fill the box */
+}
+
+/* Liquid glass play button */
+.play-button {
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2s infinite;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.play-button::before {
+    content: '';
+    border-style: solid;
+    border-width: 12px 0 12px 20px;
+    border-color: transparent transparent transparent white;
+    margin-left: 5px;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Hover effects for videos */
+.video-container {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.video-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+    z-index: 10;
+}
+
+/* --- Video Loader Styles --- */
+.loader-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    opacity: 0; /* Hidden by default */
+    pointer-events: none; /* Not clickable by default */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Class to show the loader */
+.loader-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.progress-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    /* The background is a conic-gradient that we'll update with JS */
+    background: conic-gradient(#e88d6c 0deg, #444 0deg);
+    position: relative;
+    transition: background 0.1s;
+}
+
+/* Inner circle to create the donut effect */
+.progress-circle::before {
+    content: "";
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    background-color: #222;
+    border-radius: 50%;
+}
+
+.progress-percent {
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+    z-index: 1;
+}
+
+/* Hide the play button when a video is loading */
+.video-container.loading .play-button {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ... (Existing styles) ... */
+
+/* Custom utility classes for the specific text colors in the samples */
+.text-accent-blue { color: #5c8d9e; }
+.text-accent-orange { color: #e88d6c; } /* This is the color we will use */
+
+/* Ensures smooth scrolling to sections */
+html { scroll-behavior: smooth; }
+
+/* ... (Existing styles for .img-container, @media, etc.) ... */
+
+/* Removed the .frosted-menu class and its styles as we are using Tailwind directly on the mobile menu div now. */
+
+/* Links inside the mobile menu */
+.mobile-menu-box nav a {
+    color: #fcfcfc; /* Light text on dark frosted background */
+    /* Removed padding and border-bottom, as these are now handled by Tailwind in HTML for better control */
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-menu-box nav a:hover {
+    color: #e88d6c; /* Accent color on hover */
+    transform: translateX(5px);
+}
+
+/* State for the menu when it's open (visible, scaled, and opaque) */
+.mobile-menu-box.is-open {
+    transform: translate(-50%, -50%) scale(1); /* Return to original size and centered */
+    opacity: 1; /* Fully opaque */
+}
+
+/* Adjust the hamburger button text color in its default, high-contrast state */
+.frosted-header .sm\:hidden {
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.45);
+    /* Ensure a transition for the color change */
+    transition: color 0.3s ease; 
+}
+
+/* Adjust the hamburger button text color when the header is scrolled (solid state) */
+.frosted-header.solid .sm\:hidden {
+    color: #111827;
+    text-shadow: none;
+}
+/* Keep the custom text-accent-orange utility class functional for the icon */
+/* The color is defined at the top of the CSS file, but we ensure it overrides the default states */
+.text-accent-orange { color: #e88d6c !important; }
+
+/* ... (Rest of existing CSS) ... */

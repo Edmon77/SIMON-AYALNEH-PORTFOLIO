@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photographer Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to your external stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Sticky Header/Navigation -->
+   <header id="site-header" class="frosted-header sticky top-0 z-50 py-4">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-center sm:justify-between relative">
+        <a href="#" class="text-3xl font-bold tracking-widest header-title text-gray-800">
+            SIMON AYALNEH
+        </a>
+        <nav class="hidden sm:flex space-x-8 text-sm font-medium tracking-wider">
+            <a href="#about" class="hover:text-accent-orange transition duration-200">ABOUT</a>
+            <a href="#viewer-choice" class="hover:text-accent-orange transition duration-200">PORTFOLIO</a>
+            <a href="#contact" class="hover:text-accent-orange transition duration-200">CONTACT</a>
+        </nav>
+        <div id="mobile-menu-button" class="sm:hidden absolute right-4 text-2xl cursor-pointer text-white z-50">
+            &#9776;
+        </div>
+    </div>
+</header>
+<div id="mobile-menu" class="mobile-menu-box fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+                              bg-black/40 backdrop-blur-xl border border-white/20 rounded-2xl p-8 
+                              shadow-lg hidden z-[999] transition-all duration-300 ease-out 
+                              transform scale-95 opacity-0">
+    <nav class="flex flex-col space-y-4 text-lg font-medium tracking-wider text-center">
+        <a href="#about" class="menu-link block py-2 hover:text-accent-orange transition duration-200" onclick="closeMobileMenu()">ABOUT</a>
+        <a href="#viewer-choice" class="menu-link block py-2 hover:text-accent-orange transition duration-200" onclick="closeMobileMenu()">PORTFOLIO</a>
+        <a href="#contact" class="menu-link block py-2 hover:text-accent-orange transition duration-200" onclick="closeMobileMenu()">CONTACT</a>
+    </nav>
+</div>
+
+    <!-- 0. ABOUT Section Full-Screen -->
+    <section id="about" class="relative w-full h-screen overflow-hidden m-0 p-0">
+        <!-- Single Background Image with Blur -->
+        <img src="images/IMG_9818.JPG" class="absolute inset-0 w-full h-full object-cover blur-sm" />
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/40"></div>
+        <!-- Centered Text -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center z-10 text-center px-4 max-w-2xl mx-auto">
+            <h1 class="text-3xl md:text-4xl font-semibold text-white tracking-wide mb-4">
+                About Me
+            </h1>
+            <p class="text-sm md:text-base text-white/80 leading-relaxed">
+                I am a visual storyteller specializing in photography and cinematic video editing. 
+                I focus on capturing authentic moments and creating content that feels modern and minimal. 
+                With 3 years of experience, I craft imagery that balances style, emotion, and simplicity.
+            </p>
+            <!-- Scroll Indicator -->
+            <a href="#viewer-choice" class="mt-10 animate-bounce text-white/70 flex flex-col items-center group transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto transition-transform duration-300 group-hover:translate-y-1 group-hover:text-[#bd5b15]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+                <p class="text-xs mt-1 transition-all duration-300 group-hover:text-[#bd5b15] group-hover:scale-110">
+                    Scroll down to see my work
+                </p>
+            </a>
+        </div>
+    </section>
+
+    <!-- 1. VIEWER CHOICE Section -->
+    <section id="viewer-choice" class="relative w-full py-24 bg-gray-50 flex flex-col items-center justify-center text-center">
+        <h2 class="text-4xl md:text-5xl font-bold header-title text-gray-800 mb-6">
+            Explore My Work
+        </h2>
+        <p class="text-gray-500 mb-12 max-w-xl">
+            Choose your experience: dive into stunning photography or cinematic videos. 
+        </p>
+        <!-- Choice Buttons -->
+        <div class="flex flex-col md:flex-row gap-8">
+            <a href="#weddings" class="px-12 py-6 text-xl md:text-2xl font-semibold border-2 border-gray-300 rounded-lg text-gray-700 transition-all duration-300 transform hover:scale-105 hover:bg-white hover:text-[#bd5b15] shadow-md hover:shadow-lg">
+                Photos
+            </a>
+            <a href="#videography" class="px-12 py-6 text-xl md:text-2xl font-semibold border-2 border-gray-300 rounded-lg text-gray-700 transition-all duration-300 transform hover:scale-105 hover:bg-white hover:text-[#bd5b15] shadow-md hover:shadow-lg">
+                Videos
+            </a>
+        </div>
+    </section>
+    <!-- 1. WEDDINGS Section -->
+    <section id="weddings" class="py-16 px-4 md:px-8">
+        <div class="mb-12 text-center">
+            <h2 class="text-5xl md:text-6xl font-bold kosfia-title text-gray-800 tracking-wider">
+                weddings
+            </h2>
+            <p class="text-base tracking-[0.5em] mt-2 font-medium text-[#b06e3f]">
+                PHOTOGRAPHY 
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="img-container aspect-[2/3]">
+                <img src="images/Column 1.JPG">
+            </div>
+            <div class="flex flex-col gap-6">
+                <div class="img-container aspect-[2/1]">
+                    <img src="images/IMG_9712.JPG">
+                </div>
+                <div class="img-container aspect-[2/1]">
+                    <img src="images/IMG_9713.JPG">
+                </div>
+                <div class="img-container aspect-[2/1]">
+                    <img src="images/IMG_9714.JPG">
+                </div>
+            </div>
+            <div class="img-container aspect-[2/3]">
+                <img src="images/IMG_9715.JPG">
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. CONTEMPORARY CANVAS Section -->
+    <section id="contemporary-canvas" class="py-16 px-4 md:px-8 bg-[#f8f8f8]">
+        <div class="mb-12 text-center">
+            <h1 class="text-3xl md:text-4xl font-light text-[#e2725b] tracking-wider kosfia-title">
+                Contemporary Canvas
+            </h1>
+        </div>
+        <div class="img-container w-full">
+            <img src="images/IMG_9818.JPG" alt="Main portrait" class="w-full object-cover">
+        </div>
+        <div class="max-w-4xl mx-auto mt-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="img-container md:col-span-2">
+                    <img src="images/IMG_9819.JPG" alt="Fashion portrait" class="w-full h-full object-cover">
+                </div>
+                <div class="img-container flex flex-col gap-6">
+                    <img src="images/IMG_9820.JPG" alt="Side portrait" class="w-full h-1/2 object-cover">
+                    <img src="images/IMG_9821.JPG" alt="Portrait with crown" class="w-full h-1/2 object-cover">
+                </div>
+            </div>
+            <p class="text-[0.7rem] leading-snug text-gray-500 max-w-xs mt-2 self-end">
+                contemporary canvas is the visual dialogue between past and present, 
+                a celebration of Ethiopian heritage expressed through the language of 
+                modern fashion. Through this lens, 'contemporary canvas' presents a 
+                powerful and nuanced portrait of a woman who is both a guardian of her roots 
+                and a pioneer of her own future.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. TRAVEL PHOTOGRAPHY Section -->
+    <section id="travel-photography" class="py-16 px-4 sm:px-6 lg:px-8 bg-[#f8f8f8]">
+    <div class="mb-12 text-center">
+        <h2 class="text-3xl md:text-4xl font-light text-[#e2725b] tracking-wider kosfia-title">
+            Travel
+        </h2>
+        <h2 class="text-3xl md:text-4xl font-light text-gray-800 -mt-2 kosfia-title">
+            photography
+        </h2>
+    </div>
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="img-container flex items-end justify-end">
+            <img src="images/IMG_9716.JPG" alt="Woman looking out of a rusty window" class="w-full h-auto object-contain max-h-[550px]">
+        </div>
+        <div class="flex flex-col gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <img src="images/IMG_9717.JPG" alt="Black and white portrait of a smiling man" class="w-full h-auto object-contain md:mt-40">
+                <img src="images/IMG_9719.JPG" alt="Dark interior with stone arches" class="w-full h-auto object-contain">
+            </div>
+            <div>
+                <img src="images/IMG_9718.JPG" alt="Island with a white monastery on a lake" class="w-full h-auto object-contain">
+            </div>
+            <div>
+                <p class="text-xs md:text-sm leading-snug text-gray-600 max-w-md">
+                    This collecuon is an invitation to pause and look closer. 
+                    It's a journer that more bevond the typical tourist path. 
+                    reaveling the humanty and quite dignity of a alnd steeped in tradition. 
+                    Each photograph is persona
+                    reflections, a memorr of moments that resonated deeply and left an 
+                    indelible mark her are echoes ol the North. preserved time.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- 1. GEBETA LEHAGER Section -->
+    <section id="gebeta-lehager" class="py-16 px-4 md:px-8">
+    <div class="mb-12 text-center">
+        <h2 class="text-5xl md:text-6xl font-light kosfia-title">
+            <span class="text-accent-blue">Gebeta</span> 
+            <span class="text-accent-orange">lehager</span>
+        </h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 w-full max-w-6xl mx-auto">
+        <div class="flex items-center justify-center bg-gray-100 overflow-hidden hover:scale-105 transition-transform duration-500">
+            <img src="images/IMG_9731.JPG" class="w-full h-auto object-contain">
+        </div>
+        
+        <div class="flex items-center justify-center bg-gray-100 overflow-hidden small-diagonal">
+            <img src="images/IMG_9733.JPG" class="w-full sm:w-3/4 lg:w-1/2 h-auto object-contain transition-transform duration-500">
+        </div>
+
+        <div class="flex items-center justify-center bg-gray-100 overflow-hidden small-diagonal">
+            <img src="images/IMG_9732.JPG" class="w-full sm:w-3/4 lg:w-1/2 h-auto object-contain transition-transform duration-500">
+        </div>
+
+        <div class="flex items-center justify-center bg-gray-100 overflow-hidden hover:scale-105 transition-transform duration-500">
+            <img src="images/IMG_9734.JPG" class="w-full h-auto object-contain">
+        </div>
+    </div>
+    <div class="mt-8 md:mt-4 w-full max-w-6xl mx-auto">
+    <p class="text-sm md:text-base leading-relaxed text-accent-orange font-light md:w-3/4">
+        A visual exploration of the 'Gebeta Lehager' initiative.<br class="hidden md:inline">
+        A government-led program to develop new tourist<br class="hidden md:inline"> 
+        destinations and boost the country's ecotourism sector.<br class="hidden md:inline">
+        These images, captured in Bahir Dar on the shores of Lake Tana,<br class="hidden md:inline"> 
+        showcase the new infrastructure, lakeside resorts, and<br class="hidden md:inline">
+        beautiful landscapes being transformed 
+        by this ambitious project.
+    </p>
+</div>
+</section>
+
+    <!-- 4. VIDEOGRAPHY Section -->
+    <section id="videography" class="py-16 px-4 md:px-8 bg-white">
+    <div class="mb-12 text-center">
+        <h2 class="text-5xl md:text-6xl font-light kosfia-title text-gray-800 tracking-wider">
+            Videography
+        </h2>
+        <p class="text-gray-500 mt-2 max-w-xl mx-auto font-light kosfia-title">
+            A curated selection of cinematic videos. Click any thumbnail to load and watch.
+        </p>
+    </div>
+    <div class="grid grid-rows-[auto_auto] grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        
+        <div class="relative cursor-pointer overflow-hidden rounded-lg shadow-lg md:col-span-4 aspect-video bg-black video-container">
+            <video class="w-full h-full object-cover" 
+                   poster="images/thumbnails/video1_thumb.png" 
+                   data-src="videos/MMCY TRANSITON VIDEO(From leadership to frontline support).mp4"
+                   playsinline></video>
+            <div class="loader-overlay">
+                <div class="progress-circle">
+                    <span class="progress-percent">0%</span>
+                </div>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div class="play-button"></div>
+            </div>
+        </div>
+
+        <div class="relative cursor-pointer overflow-hidden rounded-lg shadow-lg aspect-[9/16] bg-black video-container">
+            <video class="w-full h-full object-cover" 
+                   poster="images/thumbnails/video2_thumb.png" 
+                   data-src="videos/GOLD BEAUTY.mp4"
+                   playsinline></video>
+            <div class="loader-overlay">
+                <div class="progress-circle">
+                    <span class="progress-percent">0%</span>
+                </div>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div class="play-button"></div>
+            </div>
+        </div>
+
+        <div class="relative cursor-pointer overflow-hidden rounded-lg shadow-lg aspect-[9/16] bg-black video-container">
+            <video class="w-full h-full object-cover" 
+                   poster="images/thumbnails/video3_thumb.png" 
+                   data-src="videos/HOTTO COCKTAILS V2.mp4"
+                   playsinline></video>
+            <div class="loader-overlay">
+                <div class="progress-circle">
+                    <span class="progress-percent">0%</span>
+                </div>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div class="play-button"></div>
+            </div>
+        </div>
+
+        <div class="relative cursor-pointer overflow-hidden rounded-lg shadow-lg aspect-[9/16] bg-black video-container">
+            <video class="w-full h-full object-cover" 
+                   poster="images/thumbnails/video4_thumb.png" 
+                   data-src="videos/HOTTO SOUND DESIGN.mp4"
+                   playsinline></video>
+            <div class="loader-overlay">
+                <div class="progress-circle">
+                    <span class="progress-percent">0%</span>
+                </div>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div class="play-button"></div>
+            </div>
+        </div>
+        
+        <div class="relative cursor-pointer overflow-hidden rounded-lg shadow-lg aspect-[9/16] bg-black video-container">
+            <video class="w-full h-full object-cover" 
+                   poster="images/thumbnails/video5_thumb.png" 
+                   data-src="videos/THE ALCHEMIST 7 2.mp4"
+                   playsinline></video>
+            <div class="loader-overlay">
+                <div class="progress-circle">
+                    <span class="progress-percent">0%</span>
+                </div>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div class="play-button"></div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Video Modal -->
+    <div id="videoModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden z-50 flex items-center justify-center">
+        <div class="relative max-w-5xl w-full flex items-center justify-center">
+            <button onclick="closeVideoModal()" class="absolute top-4 right-4 text-white text-3xl z-50">&times;</button>
+            <video id="modalVideo" class="rounded-lg shadow-lg object-contain max-h-[90vh] max-w-full" controls></video>
+        </div>
+    </div>
+
+    <!-- Footer/Contact Section -->
+    <footer id="contact" class="py-16 md:py-24 mt-24 bg-gray-50 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h3 class="text-4xl md:text-5xl font-light header-title mb-8 text-gray-800">
+                Let's <span class="text-accent-orange">Connect</span>
+            </h3>
+            <div class="flex flex-col space-y-4 md:space-y-0 md:flex-row justify-center md:space-x-12 text-lg font-medium tracking-wide">
+                <!-- Gmail/Email -->
+                <a href="mailto:ayalnehsimon@gmail.com" class="text-gray-600 hover:text-accent-blue transition duration-200">
+                    <span class="font-bold">Email:</span> ayalnehsimon@gmail.com
+                </a>
+                <!-- Phone Number -->
+                <a href="tel:+251930795282" class="text-gray-600 hover:text-accent-blue transition duration-200">
+                    <span class="font-bold">Phone:</span> +251930795282
+                </a>
+                <!-- Instagram -->
+                <a href="https://instagram.com/Simon_s_rk" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-accent-blue transition duration-200">
+                    <span class="font-bold">Instagram:</span> @Simon_s_rk
+                </a>
+            </div>
+            <p class="mt-16 text-sm text-gray-400">
+                &copy; <span id="year"></span> SIMON AYALNEH. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Link to your external script file -->
+    <script src="js/script.js"></script>
+</body>
+</html>

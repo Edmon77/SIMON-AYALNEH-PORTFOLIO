@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photographer Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Fancy liquid glass loading spinner */
+    .loading-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 20;
+    }
+    .loader-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 4px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- VIDEOGRAPHY Section -->
+  <section id="videography" class="py-16 px-4 md:px-8 bg-white">
+    <div class="mb-12 text-center">
+      <h2 class="text-5xl md:text-6xl font-light kosfia-title text-gray-800 tracking-wider">
+        Videography
+      </h2>
+      <p class="text-gray-500 mt-2 max-w-xl mx-auto font-light kosfia-title">
+        A curated selection of cinematic videos. Click any video to watch.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div class="relative cursor-pointer overflow-hidden rounded-lg shadow-lg aspect-video bg-black video-container" data-video="videos/MMCY TRANSITON VIDEO(From leadership to frontline support).mp4">
+        <img src="thumbnails/video1.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Thumbnail 1">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="play-button"></div>
+        </div>
+      </div>
+      <div class="relative cursor-pointer overflow-hidden rounded-lg shadow-lg aspect-[9/16] bg-black video-container" data-video="videos/GOLD BEAUTY.mp4">
+        <img src="thumbnails/video2.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Thumbnail 2">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="play-button"></div>
+        </div>
+      </div>
+      <div class="relative cursor-pointer overflow-hidden rounded-lg shadow-lg aspect-[9/16] bg-black video-container" data-video="videos/HOTTO COCKTAILS V2.mp4">
+        <img src="thumbnails/video3.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Thumbnail 3">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="play-button"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Modal -->
+  <div id="videoModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden z-50 flex items-center justify-center">
+    <div class="relative max-w-5xl w-full flex items-center justify-center">
+      <button onclick="closeVideoModal()" class="absolute top-4 right-4 text-white text-3xl z-50">&times;</button>
+      <div class="relative w-full flex items-center justify-center">
+        <!-- Loader -->
+        <div id="loadingOverlay" class="loading-overlay hidden">
+          <div class="loader-circle"></div>
+          <p id="loadingPercent" class="text-white font-medium mt-4">0%</p>
+        </div>
+        <video id="modalVideo" class="rounded-lg shadow-lg object-contain max-h-[90vh] max-w-full" controls></video>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const videoModal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    const loadingPercent = document.getElementById('loadingPercent');
+
+    document.querySelectorAll('.video-container').forEach(container => {
+      container.addEventListener('click', () => {
+        const videoSrc = container.getAttribute('data-video');
+        openVideoModal(videoSrc);
+      });
+    });
+
+    function openVideoModal(src) {
+      videoModal.classList.remove('hidden');
+      loadingOverlay.classList.remove('hidden');
+      modalVideo.src = src;
+
+      modalVideo.load();
+      modalVideo.addEventListener('progress', updateProgress);
+      modalVideo.addEventListener('canplay', () => {
+        loadingOverlay.classList.add('hidden');
+        modalVideo.play();
+      }, { once: true });
+    }
+
+    function updateProgress() {
+      if (modalVideo.buffered.length > 0) {
+        const percent = (modalVideo.buffered.end(0) / modalVideo.duration) * 100;
+        loadingPercent.textContent = Math.floor(percent) + "%";
+      }
+    }
+
+    function closeVideoModal() {
+      modalVideo.pause();
+      modalVideo.src = '';
+      videoModal.classList.add('hidden');
+      loadingOverlay.classList.add('hidden');
+      loadingPercent.textContent = "0%";
+    }
+
+    videoModal.addEventListener('click', (e) => {
+      if (e.target === videoModal) {
+        closeVideoModal();
+      }
+    });
+  </script>
+</body>
+</html>
